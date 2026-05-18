@@ -1,11 +1,25 @@
 export const generateCSS = (config) => {
     const {
+        character,
         bubbleLineColor,
         bubbleTxtColor,
         bubbleMarginTop,
         bubbleMarginBottom,
         bubbleBorderRadius
     } = config;
+
+    const characterUrls = {
+        haru: {
+            line: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-line.png',
+            fill: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-fill.png'
+        },
+        hane: {
+            line: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/hane-line.png',
+            fill: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/hane-fill.png'
+        }
+    };
+
+    const currentCharacter = characterUrls[character] || characterUrls.haru;
 
     return `/******************************** 
     * 변수
@@ -22,8 +36,8 @@ export const generateCSS = (config) => {
     --bubble-border-radius: ${bubbleBorderRadius}px;
 
     /* 채팅 디자인 상단/하단 */
-    --bubble-design-top-img: url("https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-line.png");
-    --bubble-design-bottom-img: url("https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-fill.png");
+    --bubble-design-top-img: url("${currentCharacter.line}");
+    --bubble-design-bottom-img: url("${currentCharacter.fill}");
     }
 
     /******************************** 
@@ -56,8 +70,7 @@ export const generateCSS = (config) => {
     content: ""; position: absolute; 
     top: -58.7px; 
     right: -48.5px; 
-    z-index: 5;   
-
+    
     width: 100px; 
     height: 120px;
 
@@ -66,7 +79,13 @@ export const generateCSS = (config) => {
     background-position: center;
 }
 
+.chat_list div.chat::before {
+    z-index: 4;
+    background-image: var(--bubble-design-bottom-img); 
+}
+
 .chat_list div.chat::after {
+    z-index: 5;
     background-color: var(--bubble-line-color) !important;
     -webkit-mask-image: var(--bubble-design-top-img);
     mask-image: var(--bubble-design-top-img);
@@ -76,10 +95,6 @@ export const generateCSS = (config) => {
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
     mask-position: center;
-}
-
-.chat_list div.chat::before {
-    background-image: var(--bubble-design-bottom-img); 
 }
 `;
 };

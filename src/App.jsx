@@ -8,11 +8,23 @@ import bgImage from './img/background.png';
 
 function App() {
     // 스타일 상태 관리
+    const [character, setCharacter] = useState('haru');
     const [bubbleLineColor, setBubbleLineColor] = useState('#391010');
     const [bubbleTxtColor, setBubbleTxtColor] = useState('#000000');
     const [bubbleMarginTop, setBubbleMarginTop] = useState(20);
     const [bubbleMarginBottom, setBubbleMarginBottom] = useState(20);
     const [bubbleBorderRadius, setBubbleBorderRadius] = useState(18);
+
+    // 캐릭터 변경 시 기본 색상 변경 (선택 사항)
+    useEffect(() => {
+        if (character === 'haru') {
+            setBubbleLineColor('#391010');
+            setBubbleTxtColor('#000000');
+        } else {
+            setBubbleLineColor('#102239'); // 하네 기본 색상 (예시)
+            setBubbleTxtColor('#000000');
+        }
+    }, [character]);
 
     const backgroundImageUrl = bgImage;  
     const fontSize = 24;
@@ -49,6 +61,7 @@ function App() {
     }, []);
 
     const config = {
+        character,
         bubbleLineColor,
         bubbleTxtColor,
         bubbleMarginTop,
@@ -80,6 +93,20 @@ function App() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Left Panel */}
                 <div className="lg:col-span-3 space-y-4">
+                    <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 p-2 flex gap-2">
+                        <button 
+                            onClick={() => setCharacter('haru')}
+                            className={`flex-1 py-2 px-4 rounded-xl text-sm font-bold transition-all ${character === 'haru' ? 'bg-indigo-500 text-white shadow-md shadow-indigo-200' : 'bg-transparent text-neutral-500 hover:bg-neutral-50'}`}
+                        >
+                            하루 (Haru)
+                        </button>
+                        <button 
+                            onClick={() => setCharacter('hane')}
+                            className={`flex-1 py-2 px-4 rounded-xl text-sm font-bold transition-all ${character === 'hane' ? 'bg-indigo-500 text-white shadow-md shadow-indigo-200' : 'bg-transparent text-neutral-500 hover:bg-neutral-50'}`}
+                        >
+                            하네 (Hane)
+                        </button>
+                    </div>
                     <EditorPanel 
                         bubbleLineColor={bubbleLineColor} setBubbleLineColor={setBubbleLineColor}
                         bubbleTxtColor={bubbleTxtColor} setBubbleTxtColor={setBubbleTxtColor}
