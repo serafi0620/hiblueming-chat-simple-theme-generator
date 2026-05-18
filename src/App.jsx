@@ -51,7 +51,7 @@ function App() {
     }, [bottomClip, bottomDuck, bottomButton]);
 
     const [fullWidthChat, setFullWidthChat] = useState(false);
-    const [showNickname, setShowNickname] = useState(true);
+    const [showNickname, setShowNickname] = useState(false);
 
     const fontSize = 24; // 텍스트 크기 24px로 고정
     
