@@ -43,7 +43,7 @@ const EditorPanel = ({
                                 <input 
                                     type="range" 
                                     min="0" 
-                                    max="25" 
+                                    max="30" 
                                     value={bubbleBorderRadius} 
                                     onChange={(e) => setBubbleBorderRadius(Number(e.target.value))} 
                                     className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-indigo-500" 
