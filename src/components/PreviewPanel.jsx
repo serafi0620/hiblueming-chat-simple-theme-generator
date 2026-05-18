@@ -30,31 +30,31 @@ const PreviewPanel = ({ previewChats, fontSize, backgroundImageUrl }) => {
             </div>
             <div 
                 ref={previewRef}
-                className="relative w-full aspect-video bg-slate-900 overflow-hidden bg-cover bg-center" 
-                style={{ backgroundImage: `url('${backgroundImageUrl}')` }}
+                className="relative w-full aspect-video bg-white overflow-hidden" 
             >
                 {/* 실시간 샘플 (Floating Sample Preview) */}
                 <div className="absolute bottom-6 left-6 z-20 pointer-events-none">
-                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden relative shadow-2xl flex items-center justify-center" style={{ width: '250px', height: '180px' }}>
-                        <div 
-                            className="flex flex-col items-center origin-center"
-                            style={{ 
-                                width: '400px',
-                                transform: `scale(0.45)` 
-                            }}
-                        >
-                            <div className="chat_list w-full flex flex-col items-center">
-                                <div className="chat_box" style={{ width: 400 }}>
-                                    <div className="chat">
-                                        <div className="inner_box">
-                                            <p className="text" style={{ fontSize: '24px' }}>샘플 메시지입니다</p>
+                    <div className="origin-bottom-left" style={{ transform: 'scale(0.8)' }}>
+                        <div className="bg-white/5 backdrop-blur-sm rounded-[40px] border border-white/10 overflow-hidden relative shadow-2xl pb-4 px-4 pt-10 inline-block">
+                            <div 
+                                style={{ 
+                                    width: '576px', // 메인 미리보기와 동일한 기준 너비
+                                    zoom: 0.8
+                                }}
+                            >
+                                <div className="chat_list w-full block">
+                                    <div className="chat_box mx-auto" style={{ width: '100%' }}>
+                                        <div className="chat">
+                                            <div className="inner_box">
+                                                <p className="text" style={{ fontSize: '24px' }}>샘플 메시지입니다</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="chat_box" style={{ width: 400 }}>
-                                    <div className="chat">
-                                        <div className="inner_box">
-                                            <p className="text" style={{ fontSize: '24px' }}>디자인을 확인해보세요!</p>
+                                    <div className="chat_box mx-auto" style={{ width: '100%' }}>
+                                        <div className="chat">
+                                            <div className="inner_box">
+                                                <p className="text" style={{ fontSize: '24px'}}>2줄 샘플 메세지입니다. 뭐라고 적어야 2줄이 될까나. 폰트는 귀염발랄체 </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

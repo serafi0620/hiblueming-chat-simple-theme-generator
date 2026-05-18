@@ -4,62 +4,77 @@ export const generateCSS = (config) => {
         bubbleLineColor,
         bubbleTxtColor,
         bubbleMarginTop,
-        bubbleMarginBottom,
-        bubbleBorderRadius
+        bubblePaddingY,
+        bubblePaddingLeft,
+        bubblePaddingRight,
+        bubbleBorderRadius,
+        bubbleFullWidth,
+        haruEar,
+        haruExpression
     } = config;
 
-    const characterUrls = {
-        haru: {
-            line: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-line.png',
-            fill: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-fill.png'
-        },
-        hane: {
-            line: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/hane-line.png',
-            fill: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/hane-fill.png'
-        },
-        ate: {
-            line: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/ate-line.png',
-            fill: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/ate-fill.png'
+    const getCharacterUrls = () => {
+        if (character === 'haru') {
+            return {
+                line: `https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-line-${haruEar}-${haruExpression}.png`,
+                fill: `https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-fill-${haruExpression}.png`
+            };
         }
+        
+        const characterUrls = {
+            hane: {
+                line: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/hane-line.png',
+                fill: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/hane-fill.png'
+            },
+            ate: {
+                line: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/ate-line.png',
+                fill: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/ate-fill.png'
+            }
+        };
+        return characterUrls[character] || characterUrls.hane; // Default to hane if haru is not handled here
     };
 
-    const currentCharacter = characterUrls[character] || characterUrls.haru;
+    const currentCharacter = getCharacterUrls();
 
     return `/******************************** 
-    * 변수
-    ********************************/
-    :root {
+* 변수
+********************************/
+:root {
     --main-font: 'Gyeombalbal', 'M PLUS Rounded 1c', sans-serif;
 
-    /* 채팅 스타일 1 (홀수) */
+    /* 채팅 스타일 */
     --bubble-bg-color: #FFFFFF;
     --bubble-line-color: ${bubbleLineColor};
     --bubble-txt-color: ${bubbleTxtColor};
     --bubble-margin-top: ${bubbleMarginTop}px;
-    --bubble-margin-bottom: ${bubbleMarginBottom}px;
+    --bubble-margin-bottom: 20px;
+    --bubble-padding-y: ${bubblePaddingY}px;
+    --bubble-padding-left: ${bubblePaddingLeft}px;
+    --bubble-padding-right: ${bubblePaddingRight}px;
     --bubble-border-radius: ${bubbleBorderRadius}px;
 
-    /* 채팅 디자인 상단/하단 */
+    /* 채팅 디자인 */
     --bubble-design-top-img: url("${currentCharacter.line}");
     --bubble-design-bottom-img: url("${currentCharacter.fill}");
-    }
+}
 
-    /******************************** 
-    * 일반채팅 
-    *********************************/
-    .chat_list .text {
+/******************************** 
+* 일반채팅 
+*********************************/
+.chat_list .text {
     color: var(--bubble-txt-color) !important;
     text-shadow: none !important;
     letter-spacing: 0.5px;
-    }
+}
 
-    .chat_list div.chat {
+.chat_list div.chat {
     position: relative !important; 
+    display: ${bubbleFullWidth ? 'block' : 'inline-block'} !important;
 
     margin: var(--bubble-margin-top) 0px var(--bubble-margin-bottom) 10px !important; 
-    padding: 20px 25px 20px 25px !important;
-    max-width: 100% !important;
-    width: 100% !important;
+    padding: var(--bubble-padding-y) var(--bubble-padding-right) var(--bubble-padding-y) var(--bubble-padding-left) !important;
+    max-width: calc(100% - 50px) !important;
+    ${bubbleFullWidth ? '' : 'width: fit-content !important;'}
     box-sizing: border-box !important;
     
     word-wrap: break-word !important;
@@ -69,10 +84,13 @@ export const generateCSS = (config) => {
     border: 2px solid var(--bubble-line-color) !important;
 }
 
+/******************************** 
+* 팬키릭터
+*********************************/
 .chat_list div.chat::after,
 .chat_list div.chat::before {
     content: ""; position: absolute; 
-    top: -58.7px; 
+    top: -59px; 
     right: -48.5px; 
     
     width: 100px; 
@@ -85,12 +103,15 @@ export const generateCSS = (config) => {
 
 .chat_list div.chat::before {
     z-index: 4;
+    
     background-image: var(--bubble-design-bottom-img); 
 }
 
 .chat_list div.chat::after {
     z-index: 5;
+
     background-color: var(--bubble-line-color) !important;
+    
     -webkit-mask-image: var(--bubble-design-top-img);
     mask-image: var(--bubble-design-top-img);
     -webkit-mask-size: contain;

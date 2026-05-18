@@ -12,20 +12,45 @@ function App() {
     const [bubbleLineColor, setBubbleLineColor] = useState('#391010');
     const [bubbleTxtColor, setBubbleTxtColor] = useState('#000000');
     const [bubbleMarginTop, setBubbleMarginTop] = useState(20);
-    const [bubbleMarginBottom, setBubbleMarginBottom] = useState(20);
+    const [bubblePaddingY, setBubblePaddingY] = useState(20);
+    const [bubblePaddingLeft, setBubblePaddingLeft] = useState(25);
+    const [bubblePaddingRight, setBubblePaddingRight] = useState(50);
     const [bubbleBorderRadius, setBubbleBorderRadius] = useState(18);
+    const [bubbleFullWidth, setBubbleFullWidth] = useState(true);
 
-    // 캐릭터 변경 시 기본 색상 변경 (선택 사항)
+    // 하루 전용 옵션
+    const [haruEar, setHaruEar] = useState('normal'); // normal(테롱), mishi(미시테롱)
+    const [haruExpression, setHaruExpression] = useState('normal'); // normal(보통), mishi(미시)
+
+    // 캐릭터 변경 시 기본 설정값 적용
     useEffect(() => {
         if (character === 'haru') {
             setBubbleLineColor('#391010');
             setBubbleTxtColor('#000000');
+            setBubbleBorderRadius(30);
+            setBubbleMarginTop(30);
+            setBubblePaddingY(20);
+            setBubblePaddingLeft(25);
+            setBubblePaddingRight(50);
+            setBubbleFullWidth(false);
         } else if (character === 'hane') {
-            setBubbleLineColor('#102239'); // 하네 기본 색상
+            setBubbleLineColor('#102239');
             setBubbleTxtColor('#000000');
+            setBubbleBorderRadius(30);
+            setBubbleMarginTop(25);
+            setBubblePaddingY(15);
+            setBubblePaddingLeft(20);
+            setBubblePaddingRight(45);
+            setBubbleFullWidth(false);
         } else if (character === 'ate') {
-            setBubbleLineColor('#39102c'); // 아테 기본 색상 (예시)
+            setBubbleLineColor('#E6AE4D');
             setBubbleTxtColor('#000000');
+            setBubbleBorderRadius(30);
+            setBubbleMarginTop(20);
+            setBubblePaddingY(25);
+            setBubblePaddingLeft(30);
+            setBubblePaddingRight(55);
+            setBubbleFullWidth(false); // 아테는 텍스트에 딱 붙는 게 기본값이라면
         }
     }, [character]);
 
@@ -68,8 +93,13 @@ function App() {
         bubbleLineColor,
         bubbleTxtColor,
         bubbleMarginTop,
-        bubbleMarginBottom,
-        bubbleBorderRadius
+        bubblePaddingY,
+        bubblePaddingLeft,
+        bubblePaddingRight,
+        bubbleBorderRadius,
+        bubbleFullWidth,
+        haruEar,
+        haruExpression
     };
 
     const generatedCSS = generateCSS(config);
@@ -101,27 +131,33 @@ function App() {
                             onClick={() => setCharacter('haru')}
                             className={`flex-1 py-2 px-4 rounded-xl text-sm font-bold transition-all ${character === 'haru' ? 'bg-indigo-500 text-white shadow-md shadow-indigo-200' : 'bg-transparent text-neutral-500 hover:bg-neutral-50'}`}
                         >
-                            하루 (Haru)
+                            하루
                         </button>
                         <button 
                             onClick={() => setCharacter('hane')}
                             className={`flex-1 py-2 px-4 rounded-xl text-sm font-bold transition-all ${character === 'hane' ? 'bg-indigo-500 text-white shadow-md shadow-indigo-200' : 'bg-transparent text-neutral-500 hover:bg-neutral-50'}`}
                         >
-                            하네 (Hane)
+                            하네
                         </button>
                         <button 
                             onClick={() => setCharacter('ate')}
                             className={`flex-1 py-2 px-4 rounded-xl text-sm font-bold transition-all ${character === 'ate' ? 'bg-indigo-500 text-white shadow-md shadow-indigo-200' : 'bg-transparent text-neutral-500 hover:bg-neutral-50'}`}
                         >
-                            아테 (Ate)
+                            아테
                         </button>
                     </div>
                     <EditorPanel 
+                        character={character}
                         bubbleLineColor={bubbleLineColor} setBubbleLineColor={setBubbleLineColor}
                         bubbleTxtColor={bubbleTxtColor} setBubbleTxtColor={setBubbleTxtColor}
                         bubbleMarginTop={bubbleMarginTop} setBubbleMarginTop={setBubbleMarginTop}
-                        bubbleMarginBottom={bubbleMarginBottom} setBubbleMarginBottom={setBubbleMarginBottom}
+                        bubblePaddingY={bubblePaddingY} setBubblePaddingY={setBubblePaddingY}
+                        bubblePaddingLeft={bubblePaddingLeft} setBubblePaddingLeft={setBubblePaddingLeft}
+                        bubblePaddingRight={bubblePaddingRight} setBubblePaddingRight={setBubblePaddingRight}
                         bubbleBorderRadius={bubbleBorderRadius} setBubbleBorderRadius={setBubbleBorderRadius}
+                        bubbleFullWidth={bubbleFullWidth} setBubbleFullWidth={setBubbleFullWidth}
+                        haruEar={haruEar} setHaruEar={setHaruEar}
+                        haruExpression={haruExpression} setHaruExpression={setHaruExpression}
                     />
                 </div>
 
