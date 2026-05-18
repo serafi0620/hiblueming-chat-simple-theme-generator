@@ -16,6 +16,10 @@ export const generateCSS = (config) => {
         hane: {
             line: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/hane-line.png',
             fill: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/hane-fill.png'
+        },
+        ate: {
+            line: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/ate-line.png',
+            fill: 'https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/ate-fill.png'
         }
     };
 

@@ -20,8 +20,11 @@ function App() {
         if (character === 'haru') {
             setBubbleLineColor('#391010');
             setBubbleTxtColor('#000000');
-        } else {
-            setBubbleLineColor('#102239'); // 하네 기본 색상 (예시)
+        } else if (character === 'hane') {
+            setBubbleLineColor('#102239'); // 하네 기본 색상
+            setBubbleTxtColor('#000000');
+        } else if (character === 'ate') {
+            setBubbleLineColor('#39102c'); // 아테 기본 색상 (예시)
             setBubbleTxtColor('#000000');
         }
     }, [character]);
@@ -105,6 +108,12 @@ function App() {
                             className={`flex-1 py-2 px-4 rounded-xl text-sm font-bold transition-all ${character === 'hane' ? 'bg-indigo-500 text-white shadow-md shadow-indigo-200' : 'bg-transparent text-neutral-500 hover:bg-neutral-50'}`}
                         >
                             하네 (Hane)
+                        </button>
+                        <button 
+                            onClick={() => setCharacter('ate')}
+                            className={`flex-1 py-2 px-4 rounded-xl text-sm font-bold transition-all ${character === 'ate' ? 'bg-indigo-500 text-white shadow-md shadow-indigo-200' : 'bg-transparent text-neutral-500 hover:bg-neutral-50'}`}
+                        >
+                            아테 (Ate)
                         </button>
                     </div>
                     <EditorPanel 
