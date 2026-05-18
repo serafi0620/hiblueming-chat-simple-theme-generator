@@ -81,7 +81,7 @@ export const generateCSS = (config) => {
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.08) !important;
     background-color: var(--bubble-bg-color) !important;
     border-radius: var(--bubble-border-radius) !important; 
-    border: 2px solid var(--bubble-line-color) !important;
+    border: 2.5px solid var(--bubble-line-color) !important;
 }
 
 /******************************** 

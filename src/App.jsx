@@ -27,29 +27,29 @@ function App() {
         if (character === 'haru') {
             setBubbleLineColor('#391010');
             setBubbleTxtColor('#000000');
-            setBubbleBorderRadius(30);
-            setBubbleMarginTop(30);
+            setBubbleBorderRadius(35);
+            setBubbleMarginTop(10);
             setBubblePaddingY(20);
             setBubblePaddingLeft(25);
-            setBubblePaddingRight(50);
+            setBubblePaddingRight(40);
             setBubbleFullWidth(false);
         } else if (character === 'hane') {
             setBubbleLineColor('#102239');
             setBubbleTxtColor('#000000');
-            setBubbleBorderRadius(30);
-            setBubbleMarginTop(25);
-            setBubblePaddingY(15);
-            setBubblePaddingLeft(20);
-            setBubblePaddingRight(45);
+            setBubbleBorderRadius(35);
+            setBubbleMarginTop(10);
+            setBubblePaddingY(20);
+            setBubblePaddingLeft(25);
+            setBubblePaddingRight(40);
             setBubbleFullWidth(false);
         } else if (character === 'ate') {
             setBubbleLineColor('#E6AE4D');
             setBubbleTxtColor('#000000');
-            setBubbleBorderRadius(30);
-            setBubbleMarginTop(20);
-            setBubblePaddingY(25);
-            setBubblePaddingLeft(30);
-            setBubblePaddingRight(55);
+            setBubbleBorderRadius(35);
+            setBubbleMarginTop(10);
+            setBubblePaddingY(20);
+            setBubblePaddingLeft(25);
+            setBubblePaddingRight(40);
             setBubbleFullWidth(false); // 아테는 텍스트에 딱 붙는 게 기본값이라면
         }
     }, [character]);
