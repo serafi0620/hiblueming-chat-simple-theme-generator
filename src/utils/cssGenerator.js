@@ -8,7 +8,9 @@ export const generateCSS = (config) => {
         bubblePaddingLeft,
         bubblePaddingRight,
         bubbleBorderRadius,
-        bubbleFullWidth,
+        bubbleFullWidth=10,
+        donationFullWidth,
+        donationAlignLeft,
         haruEar,
         haruExpression
     } = config;
@@ -71,9 +73,10 @@ export const generateCSS = (config) => {
     position: relative !important; 
     display: ${bubbleFullWidth ? 'block' : 'inline-block'} !important;
 
-    margin: var(--bubble-margin-top) 0px var(--bubble-margin-bottom) 10px !important; 
+    margin: var(--bubble-margin-top) 0px 10px 10px !important; 
     padding: var(--bubble-padding-y) var(--bubble-padding-right) var(--bubble-padding-y) var(--bubble-padding-left) !important;
     max-width: calc(100% - 50px) !important;
+    min-width: 150px !important;
     ${bubbleFullWidth ? '' : 'width: fit-content !important;'}
     box-sizing: border-box !important;
     
@@ -81,7 +84,26 @@ export const generateCSS = (config) => {
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.08) !important;
     background-color: var(--bubble-bg-color) !important;
     border-radius: var(--bubble-border-radius) !important; 
-    border: 2.5px solid var(--bubble-line-color) !important;
+    border: 3px solid var(--bubble-line-color) !important;
+}
+
+/******************************** 
+* 도네이션
+*********************************/
+.chat_list .chat_box:not(.chat) {
+    ${donationFullWidth ? 'max-width: 100% !important;\n    width: 100% !important;' : ''}
+    margin: 20px 5px 20px 5px !important;
+    justify-self: ${donationAlignLeft ? 'left' : 'center'} !important;
+    position: relative !important;
+}
+
+.chat_list .chat_box:not(.chat) .donation_box {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 250px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    position: relative !important;
 }
 
 /******************************** 

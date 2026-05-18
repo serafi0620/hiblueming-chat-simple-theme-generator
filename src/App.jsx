@@ -18,6 +18,10 @@ function App() {
     const [bubbleBorderRadius, setBubbleBorderRadius] = useState(18);
     const [bubbleFullWidth, setBubbleFullWidth] = useState(true);
 
+    // 도네이션 옵션 (공통)
+    const [donationFullWidth, setDonationFullWidth] = useState(false);
+    const [donationAlignLeft, setDonationAlignLeft] = useState(false);
+
     // 하루 전용 옵션
     const [haruEar, setHaruEar] = useState('normal'); // normal(테롱), mishi(미시테롱)
     const [haruExpression, setHaruExpression] = useState('normal'); // normal(보통), mishi(미시)
@@ -50,7 +54,7 @@ function App() {
             setBubblePaddingY(20);
             setBubblePaddingLeft(25);
             setBubblePaddingRight(40);
-            setBubbleFullWidth(false); // 아테는 텍스트에 딱 붙는 게 기본값이라면
+            setBubbleFullWidth(false);
         }
     }, [character]);
 
@@ -59,7 +63,7 @@ function App() {
 
     const [previewChats, setPreviewChats] = useState([
         { id: 0, text: CHAT_DATA[0], type: 'chat' },
-        { id: 1, text: CHAT_DATA[1], type: 'chat' }
+        { id: 1, text: CHAT_DATA[1], type: 'donation' }
     ]);
     const messageIndexRef = useRef(2);
     const idCounterRef = useRef(2);
@@ -68,12 +72,13 @@ function App() {
         let timeoutId;
         const addNextMessage = () => {
             setPreviewChats(prev => {
+                const isDonation = Math.random() > 0.8;
                 const nextChats = [
                     ...prev, 
                     { 
                         id: idCounterRef.current++, 
                         text: CHAT_DATA[messageIndexRef.current],
-                        type: 'chat'
+                        type: isDonation ? 'donation' : 'chat'
                     }
                 ];
                 return nextChats.slice(-12);
@@ -98,6 +103,8 @@ function App() {
         bubblePaddingRight,
         bubbleBorderRadius,
         bubbleFullWidth,
+        donationFullWidth,
+        donationAlignLeft,
         haruEar,
         haruExpression
     };
@@ -156,6 +163,8 @@ function App() {
                         bubblePaddingRight={bubblePaddingRight} setBubblePaddingRight={setBubblePaddingRight}
                         bubbleBorderRadius={bubbleBorderRadius} setBubbleBorderRadius={setBubbleBorderRadius}
                         bubbleFullWidth={bubbleFullWidth} setBubbleFullWidth={setBubbleFullWidth}
+                        donationFullWidth={donationFullWidth} setDonationFullWidth={setDonationFullWidth}
+                        donationAlignLeft={donationAlignLeft} setDonationAlignLeft={setDonationAlignLeft}
                         haruEar={haruEar} setHaruEar={setHaruEar}
                         haruExpression={haruExpression} setHaruExpression={setHaruExpression}
                     />
