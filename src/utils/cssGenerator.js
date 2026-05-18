@@ -16,7 +16,7 @@ export const generateCSS = (config) => {
     const getCharacterUrls = () => {
         if (character === 'haru') {
             return {
-                line: `https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-line-${haruExpression}-${haruEar}.png`,
+                line: `https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-line-${haruEar}-${haruExpression}.png`,
                 fill: `https://raw.githubusercontent.com/serafi0620/hiblueming-chat-simple-theme-generator/main/src/img/haru-fill-${haruEar}.png`
             };
         }
