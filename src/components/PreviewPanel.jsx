@@ -47,7 +47,7 @@ const PreviewPanel = ({ previewChats, fontSize, backgroundImageUrl }) => {
                 {/* 실시간 샘플 (Floating Sample Preview) */}
                 <div className="absolute bottom-6 left-6 z-20 pointer-events-none">
                     <div className="origin-bottom-left" style={{ transform: 'scale(0.8)' }}>
-                        <div className="bg-white/5 backdrop-blur-sm rounded-[40px] border border-white/10 overflow-hidden relative shadow-2xl pb-4 px-4 pt-10 inline-block">
+                        <div className=" inline-block">
                             <div 
                                 style={{ 
                                     width: '576px', // 메인 미리보기와 동일한 기준 너비

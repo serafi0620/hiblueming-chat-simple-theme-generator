@@ -18,9 +18,9 @@ const EditorPanel = ({
 }) => {
     // 캐릭터별 기본값 정의 (App.jsx의 useEffect 로직과 일치시킴)
     const defaults = {
-        haru: { line: '#391010', txt: '#000000', radius: 35, marginTop: 10, paddingY: 20, paddingLeft: 25, paddingRight: 40, fullWidth: false },
-        hane: { line: '#102239', txt: '#000000', radius: 35, marginTop: 10, paddingY: 20, paddingLeft: 25, paddingRight: 40, fullWidth: false },
-        ate: { line: '#E6AE4D', txt: '#000000', radius: 35, marginTop: 10, paddingY: 20, paddingLeft: 25, paddingRight: 40, fullWidth: false }
+        haru: { line: '#391010', txt: '#000000', radius: 35, marginTop: 20, paddingY: 20, paddingLeft: 25, paddingRight: 40, fullWidth: false },
+        hane: { line: '#102239', txt: '#000000', radius: 35, marginTop: 20, paddingY: 20, paddingLeft: 25, paddingRight: 40, fullWidth: false },
+        ate: { line: '#E6AE4D', txt: '#000000', radius: 35, marginTop: 20, paddingY: 20, paddingLeft: 25, paddingRight: 40, fullWidth: false }
     };
 
     const currentDefaults = defaults[character] || defaults.haru;
