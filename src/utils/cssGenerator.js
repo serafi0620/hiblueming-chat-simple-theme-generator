@@ -112,8 +112,8 @@ export const generateCSS = (config) => {
 .chat_list div.chat::after,
 .chat_list div.chat::before {
     content: ""; position: absolute; 
-    top: -59px; 
-    right: -48.5px; 
+    top: -58.8px; 
+    right: -48.8px; 
     
     width: 100px; 
     height: 120px;
