@@ -126,7 +126,7 @@ function App() {
 
             <div className="text-center space-y-2">
                 <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight flex items-center justify-center gap-3">
-                    <span className="text-amber-400">✨</span> CUSTOM THEME GENERATOR
+                    하이블루밍 심플한 그거 테마
                 </h1>
             </div>
 
