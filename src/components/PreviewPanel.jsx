@@ -37,6 +37,7 @@ const PreviewPanel = ({ previewChats, fontSize, backgroundImageUrl }) => {
                     <div className="w-3 h-3 rounded-full bg-amber-400"></div>
                     <div className="w-3 h-3 rounded-full bg-green-400"></div>
                     <span className="ml-3 text-xs font-bold text-neutral-400 uppercase tracking-widest">미리보기</span>
+                    <span className="ml-3 text-[10px] font-bold text-red-500 bg-red-50/10 px-2 py-0.5 rounded border border-red-500/20">채팅 간격은 실재보다 조금 넓습니다.</span>
                 </div>
             </div>
             <div 
