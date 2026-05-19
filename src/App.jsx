@@ -32,7 +32,7 @@ function App() {
             setBubbleLineColor('#391010');
             setBubbleTxtColor('#000000');
             setBubbleBorderRadius(35);
-            setBubbleMarginTop(15);
+            setBubbleMarginTop(20);
             setBubblePaddingY(20);
             setBubblePaddingLeft(25);
             setBubblePaddingRight(40);
@@ -41,7 +41,7 @@ function App() {
             setBubbleLineColor('#102239');
             setBubbleTxtColor('#000000');
             setBubbleBorderRadius(35);
-            setBubbleMarginTop(15);
+            setBubbleMarginTop(20);
             setBubblePaddingY(20);
             setBubblePaddingLeft(25);
             setBubblePaddingRight(40);
@@ -50,7 +50,7 @@ function App() {
             setBubbleLineColor('#E6AE4D');
             setBubbleTxtColor('#000000');
             setBubbleBorderRadius(35);
-            setBubbleMarginTop(15);
+            setBubbleMarginTop(20);
             setBubblePaddingY(20);
             setBubblePaddingLeft(25);
             setBubblePaddingRight(40);
