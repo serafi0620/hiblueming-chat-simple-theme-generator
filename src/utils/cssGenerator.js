@@ -71,7 +71,7 @@ export const generateCSS = (config) => {
 
 .chat_list div.chat {
     position: relative !important; 
-    display: ${bubbleFullWidth ? 'block' : 'inline-block'} !important;
+    ${bubbleFullWidth ? 'display: block !important;' : ''}
 
     margin: var(--bubble-margin-top) 0px 10px 10px !important; 
     padding: var(--bubble-padding-y) var(--bubble-padding-right) var(--bubble-padding-y) var(--bubble-padding-left) !important;
